@@ -16,6 +16,14 @@ st.set_page_config(
 # Estilos CSS personalizados
 st.markdown("""
 <style>
+
+
+    /* Ocultar elementos por defecto de Streamlit */
+    #Main# {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+
+    
     /* Fondo con imagen y glassmorphism */
     .stApp {
         background: linear-gradient(
@@ -348,4 +356,5 @@ def mostrar_no_encontrado():
         st.rerun()
 
 if __name__ == "__main__":
+
     main()
