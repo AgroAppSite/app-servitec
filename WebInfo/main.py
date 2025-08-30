@@ -13,33 +13,80 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-
-# OCULTAR ELEMENTOS DE STREAMLIT CLOUD
-hide_streamlit_style = """
+# CSS ACTUALIZADO para ocultar elementos de Streamlit Cloud
+hide_elements_style = """
 <style>
-/* Oculta el menú de hamburguesa */
-#MainMenu {visibility: hidden;}
-
-/* Oculta el footer de Streamlit */
-footer {visibility: hidden;}
-
-/* Oculta el header */
-header {visibility: hidden;}
-
-/* Oculta el botón de deploy de Streamlit Cloud */
-.stDeployButton {visibility: hidden;}
-
-/* Ajusta el padding para compensar */
-.main .block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+/* Oculta el footer completo de Streamlit Cloud */
+footer {
+    visibility: hidden;
+    display: none;
 }
 
-/* Opcional: Oculta el número de línea en errores */
-.stException {display: none;}
+/* Oculta el botón de deploy de Streamlit Cloud */
+[data-testid="stDeployButton"] {
+    visibility: hidden;
+    display: none;
+    height: 0px;
+}
+
+/* Oculta el menú hamburguesa */
+[data-testid="stMainMenu"] {
+    visibility: hidden;
+    display: none;
+}
+
+/* Oculta el logo de Streamlit en el header */
+[data-testid="stHeader"] {
+    visibility: hidden;
+    display: none;
+    height: 0px;
+}
+
+/* Oculta cualquier elemento del toolbar */
+[data-testid="stToolbar"] {
+    visibility: hidden;
+    display: none;
+}
+
+/* Ajusta el layout principal */
+.main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Oculta el status widget */
+[data-testid="stStatusWidget"] {
+    visibility: hidden;
+    display: none;
+}
+
+/* Asegura que no queden espacios en blanco */
+div[data-testid="stDeployButton"] {
+    height: 0px;
+    min-height: 0px;
+}
+
+/* Ocultar el banner de Streamlit */
+div[data-testid="stBanner"] {
+    display: none;
+}
+
+/* Ocultar elementos específicos del cloud */
+iframe[title="streamlitApp"] {
+    margin-bottom: -50px;
+}
+
+/* Fuerza la ocultación completa */
+.stDeployButton {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0px !important;
+    width: 0px !important;
+}
 </style>
 """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+st.markdown(hide_elements_style, unsafe_allow_html=True)
 
 
 # Estilos CSS personalizados
@@ -381,5 +428,6 @@ def mostrar_no_encontrado():
 if __name__ == "__main__":
 
     main()
+
 
 
