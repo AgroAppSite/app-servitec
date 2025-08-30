@@ -14,7 +14,32 @@ st.set_page_config(
 )
 
 
+# OCULTAR ELEMENTOS DE STREAMLIT CLOUD
+hide_streamlit_style = """
+<style>
+/* Oculta el menú de hamburguesa */
+#MainMenu {visibility: hidden;}
 
+/* Oculta el footer de Streamlit */
+footer {visibility: hidden;}
+
+/* Oculta el header */
+header {visibility: hidden;}
+
+/* Oculta el botón de deploy de Streamlit Cloud */
+.stDeployButton {visibility: hidden;}
+
+/* Ajusta el padding para compensar */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Opcional: Oculta el número de línea en errores */
+.stException {display: none;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 # Estilos CSS personalizados
@@ -356,4 +381,5 @@ def mostrar_no_encontrado():
 if __name__ == "__main__":
 
     main()
+
 
